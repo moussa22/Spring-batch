@@ -16,6 +16,8 @@ public class JobRestController {
     private JobLauncher jobLauncher;
     @Autowired
     private Job job;
+    @Autowired
+    SpringBatchConfig springBatchConfig;
   @GetMapping("/startJob")
     public BatchStatus load() throws Exception{
 
@@ -25,7 +27,7 @@ public class JobRestController {
 
       JobParameters jobParameters=new JobParameters(params);
 
-      JobExecution jobExecution=jobLauncher.run(job,jobParameters);
+      JobExecution jobExecution=jobLauncher.run(springBatchConfig.bankJob(),jobParameters);
 
       while(jobExecution.isRunning()){
           System.out.println(".....................");

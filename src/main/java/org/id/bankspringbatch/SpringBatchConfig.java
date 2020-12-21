@@ -56,6 +56,8 @@ public class SpringBatchConfig {
 
         return fileItemReader;
     }
+
+
     @Bean
     public LineMapper<BankTransaction> lineMapp() {
 
@@ -71,5 +73,7 @@ public class SpringBatchConfig {
         lineMapper.setFieldSetMapper(fieldSetMapper);
         return lineMapper;
     }
+
+
 
 }
